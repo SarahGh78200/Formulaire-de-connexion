@@ -4,10 +4,10 @@ require_once(__DIR__ . "/../partials/head.php");
 <h1>Inscription</h1>
 <form method='POST'>
     <div>
-        <label for="nom">Nom</label>
-        <input type="text" name='nom'>
-        <?php if (isset($this->arrayError['nom'])) { ?>
-            <p class='text-danger'><?= $this->arrayError['nom'] ?></p>
+        <label for="name">Nom</label>
+        <input type="text" name='name'>
+        <?php if (isset($this->arrayError['name'])) { ?>
+            <p class='text-danger'><?= $this->arrayError['name'] ?></p>
         <?php } ?>
     </div>
     <div>

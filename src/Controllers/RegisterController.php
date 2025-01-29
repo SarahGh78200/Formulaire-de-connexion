@@ -9,11 +9,11 @@ class RegisterController extends AbstractController
 {
     public function index()
     {
-
+     
         if (isset($_POST['surname'],$_POST['name'] ,$_POST['email'], $_POST['password'], $_POST['idRole'])) {
             $this->check('surname', $_POST['surname']);
             $this->check('name', $_POST['name']);
-            $this->check('mail', $_POST['email']);
+            $this->check('email', $_POST['email']);
             $this->check('password', $_POST['password']);
             $this->check('idRole', $_POST['idRole']);
 
@@ -27,6 +27,7 @@ class RegisterController extends AbstractController
 
                 $user = new User(null, $surname ,$name, $email, $passwordHash, null, $id_role);
                 $user->save();
+                var_dump('HELLO');   
                 $this->redirectToRoute('/');
             }
         }

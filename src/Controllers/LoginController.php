@@ -9,9 +9,6 @@ class LoginController extends AbstractController
 {
     public function index()
     {
-        // Démarrage de la session
-        session_start();  // Ajoute cette ligne pour démarrer la session
-
         if (isset($_POST['mail'], $_POST['password'])) {
             $this->check('mail', $_POST['mail']);
             $this->check('password', $_POST['password']);
@@ -30,7 +27,7 @@ class LoginController extends AbstractController
 
                     // Vérifier si le mot de passe est correct
                     if (password_verify($password, $passwordUser)) {
-                            $_SESSION['user'] = [
+                          $_SESSION['user'] = [
                             'id' => $responseGetUser->getId(),  // Utiliser le getter approprié
                             'email' => $responseGetUser->getEmail(),
                             'pseudo' => $responseGetUser->getSurname(),
