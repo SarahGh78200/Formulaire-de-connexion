@@ -37,8 +37,9 @@ class User
             $this->name,
             $this->email,
             $this->password,
+            $this->birth_date,
             $this->id_role,
-            $this->birth_date
+            
         ]);
     }
 
@@ -76,6 +77,75 @@ class User
         return $kids;
     }
 
-    // Getters et Setters...
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+    
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+    
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+    
+    public function setName(?string $name): void
+    {
+        $this->name = $name;
+    }
+    
+    public function getSurname(): ?string
+    {
+        return $this->surname;
+    }
+    
+    public function setSurname(?string $surname): void
+    {
+        $this->surname = $surname;
+    }
+    
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+    
+    public function setEmail(?string $email): void
+    {
+        $this->email = $email;
+    }
+    
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+    
+    public function setPassword(?string $password): void
+    {
+        $this->password = $password;
+    }
+    
+    public function getBirthDate(): ?string
+    {
+        return $this->birth_date;
+    }
+    
+    public function setBirthDate(?string $birth_date): void
+    {
+        $this->birth_date = $birth_date;
+    }
+    
+    public function getIdRole(): int|string|null
+    {
+        return $this->id_role;
+    }
+    
+    public function setIdRole(int|string|null $id_role): void
+    {
+        $this->id_role = $id_role;
+    }
+    
 
 }

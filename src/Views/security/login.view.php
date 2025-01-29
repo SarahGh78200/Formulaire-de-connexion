@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . "/../partials/head.php"); // Assure-toi que le chemin est correct
+require_once(__DIR__ . "/../partials/head.php"); 
 ?>
 
 <h1>Connexion</h1>
@@ -26,5 +26,5 @@ require_once(__DIR__ . "/../partials/head.php"); // Assure-toi que le chemin est
 if (isset($error)) {
     echo "<p class='text-danger'>" . $error . "</p>";
 }
-require_once(__DIR__ .  "/../partials/footer.php"); // Vérifie aussi que le chemin est correct
+require_once(__DIR__ .  "/../partials/footer.php"); 
 ?>
