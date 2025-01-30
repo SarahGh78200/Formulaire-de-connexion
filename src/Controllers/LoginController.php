@@ -9,18 +9,18 @@ class LoginController extends AbstractController
 {
     public function index()
     {
-        if (isset($_POST['mail'], $_POST['password'])) {
-            $this->check('mail', $_POST['mail']);
+        if (isset($_POST['email'], $_POST['password'])) {
+            $this->check('email', $_POST['email']);
             $this->check('password', $_POST['password']);
 
             if (empty($this->arrayError)) {
-                $mail = htmlspecialchars($_POST['mail']);
+                $email = htmlspecialchars($_POST['email']);
                 $password = htmlspecialchars($_POST['password']);
 
                 // Créer un utilisateur avec l'email et mot de passe fournis
-                $user = new User(null, null, null, $mail, $password, null, null);
+                $user = new User(null, null, null, $password, null, null,$email);
                 // Chercher l'utilisateur dans la base de données
-                $responseGetUser = $user->login($mail);
+                $responseGetUser = $user->login($email);
 
                 if ($responseGetUser) {
                     $passwordUser = $responseGetUser->getPassword();
@@ -29,10 +29,12 @@ class LoginController extends AbstractController
                     if (password_verify($password, $passwordUser)) {
                           $_SESSION['user'] = [
                             'id' => $responseGetUser->getId(),  // Utiliser le getter approprié
-                            'email' => $responseGetUser->getEmail(),
-                            'pseudo' => $responseGetUser->getSurname(),
+                            
+                            'surname' => $responseGetUser->getSurname(),
+                            'name' => $responseGetUser->getSurname(),
                             'idUser' => $responseGetUser->getId(),
                             'idRole' => $responseGetUser->getIdRole(),  // Utiliser le getter approprié pour id_role
+                            'email' => $responseGetUser->getEmail(),
                         ];
                         $this->redirectToRoute('/');
                     } else {

@@ -4,24 +4,25 @@ require_once(__DIR__ . "/../partials/head.php");
 <h1>Inscription</h1>
 <form method='POST'>
     <div>
-        <label for="name">Nom</label>
+        <label for="surname">Nom</label>
+        <input type="text" name='surname'>
+        <?php if (isset($this->arrayError['surname'])) { 
+            ?>
+            <p class='text-danger'><?= $this->arrayError['surname'] ?></p>
+        <?php } ?>
+    </div>
+    <div>
+        <label for="name">Prénom</label>
         <input type="text" name='name'>
         <?php if (isset($this->arrayError['name'])) { ?>
             <p class='text-danger'><?= $this->arrayError['name'] ?></p>
         <?php } ?>
     </div>
     <div>
-        <label for="prenom">Prénom</label>
-        <input type="text" name='prenom'>
-        <?php if (isset($this->arrayError['prenom'])) { ?>
-            <p class='text-danger'><?= $this->arrayError['prenom'] ?></p>
-        <?php } ?>
-    </div>
-    <div>
-        <label for="mail">Email</label>
-        <input type="email" name='mail'>
-        <?php if (isset($this->arrayError['mail'])) { ?>
-            <p class='text-danger'><?= $this->arrayError['mail'] ?></p>
+        <label for="email">Email</label>
+        <input type="email" name='email'>
+        <?php if (isset($this->arrayError['email'])) { ?>
+            <p class='text-danger'><?= $this->arrayError['email'] ?></p>
         <?php } ?>
     </div>
     <div>
@@ -32,10 +33,10 @@ require_once(__DIR__ . "/../partials/head.php");
         <?php } ?>
     </div>
     <div>
-        <label for="date_naissance">Date de naissance</label>
-        <input type="date" name='date_naissance'>
-        <?php if (isset($this->arrayError['date_naissance'])) { ?>
-            <p class='text-danger'><?= $this->arrayError['date_naissance'] ?></p>
+        <label for="birth_date">Date de naissance</label>
+        <input type="birth_date" date='birth_date'>
+        <?php if (isset($this->arrayError['birth_date'])) { ?>
+            <p class='text-danger'><?= $this->arrayError['birth_date'] ?></p>
         <?php } ?>
     </div>
     <div>

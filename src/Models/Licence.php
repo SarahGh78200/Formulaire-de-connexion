@@ -7,42 +7,43 @@ use PDO;
 
 class Licence
 {
+    //PAaramtre ou valeurs
     protected ?int $id;
     protected ?string $title;
     protected ?string $description;
-    protected ?float $price;
-    protected ?bool $availability;
+    protected ?bool $availability; 
     protected ?string $picture;
+    protected ?float $price;
     protected ?int $id_user;
 
-    public function __construct(?int $id, ?string $title, ?string $description, ?float $price, ?bool $availability, ?string $picture, ?int $id_user)
+    public function __construct(?int $id, ?string $title, ?string $description,?bool $availability, ?string $picture, ?float $price,  ?int $id_user)
     {
         $this->id = $id;
         $this->title = $title;
         $this->description = $description;
-        $this->price = $price;
-        $this->availability = $availability;
+         $this->availability = $availability; 
         $this->picture = $picture;
+        $this->price = $price;
         $this->id_user = $id_user;
     }
 
     public function addLicence(): bool
     {
         $pdo = DataBase::getConnection();
-        $sql = "INSERT INTO `licence` (`id`, `title`, `description`, `price`, `availability`, `picture`, `id_user`) VALUES (?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO `licence` (`id`, `title`, `description`, `availability`, `picture`,`price`, `id_user`) VALUES (?,?,?,?,?,?,?)";
         $statement = $pdo->prepare($sql);
-        return $statement->execute([$this->id, $this->title, $this->description, $this->price, $this->availability, $this->picture, $this->id_user]);
+        return $statement->execute([$this->id, $this->title, $this->description,  $this->availability,$this->picture,$this->price, $this->id_user]);
     }
 
     public function getLicenceById()
     {
         $pdo = DataBase::getConnection();
-        $sql = "SELECT `licence`.`id`, `licence`.`title`, `licence`.`description`, `licence`.`price`, `licence`.`availability`, `licence`.`picture`, `licence`.`id_user` FROM `licence` WHERE `licence`.`id` = ?";
+        $sql = "SELECT `licence`.`id`, `licence`.`title`, `licence`.`description`, `licence`.`availability`, `licence`.`picture`, `licence`.`price`, `licence`.`id_user` FROM `licence` WHERE `licence`.`id` = ?";
         $statement = $pdo->prepare($sql);
         $statement->execute([$this->id]);
         $row = $statement->fetch(PDO::FETCH_ASSOC);
         if ($row) {
-            return new Licence($row['id'], $row['title'], $row['description'], $row['price'], $row['availability'], $row['picture'], $row['id_user']);
+            return new Licence($row['id'], $row['title'], $row['description'], $row['availability'], $row['picture'], $row['price'], $row['id_user']);
         } else {
             return null;
         }
@@ -51,9 +52,9 @@ class Licence
     public function updateLicence()
     {
         $pdo = DataBase::getConnection();
-        $sql = "UPDATE `licence` SET `title` = ?, `description` = ?, `price` = ?, `availability` = ?, `picture` = ? WHERE `id` = ?";
+        $sql = "UPDATE `licence` SET `title` = ?, `description` = ?,` availability` = ?, =`picture` = ?,`price`  = ? WHERE `id` = ?";
         $statement = $pdo->prepare($sql);
-        return $statement->execute([$this->title, $this->description, $this->price, $this->availability, $this->picture, $this->id]);
+        return $statement->execute([$this->title, $this->description, $this->availability, $this->picture, $this->price, $this->id]);
     }
 
     public function deleteLicence()
