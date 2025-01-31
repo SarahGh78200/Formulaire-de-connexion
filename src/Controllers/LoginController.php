@@ -33,7 +33,7 @@ class LoginController extends AbstractController
                             'surname' => $responseGetUser->getSurname(),
                             'name' => $responseGetUser->getSurname(),
                             'idUser' => $responseGetUser->getId(),
-                            'idRole' => $responseGetUser->getIdRole(),  // Utiliser le getter approprié pour id_role
+                            'idRole' => $responseGetUser->getId_Role(),  // Utiliser le getter approprié pour id_role
                             'email' => $responseGetUser->getEmail(),
                         ];
                         $this->redirectToRoute('/');

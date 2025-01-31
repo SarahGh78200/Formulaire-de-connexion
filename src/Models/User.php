@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Models;
-
 use PDO;
 use Config\DataBase;
-
 class User
 {
     protected ?int $id;
@@ -132,11 +130,11 @@ class User
     {
         $this->birth_date = $birth_date;
     }
-    public function getIdRole(): int|string|null
+    public function getId_Role(): int|string|null
     {
         return $this->id_role;
     }
-    public function setIdRole(int|string|null $id_role): void
+    public function setId_Role(int|string|null $id_role): void
     {
         $this->id_role = $id_role;
     }
