@@ -1,14 +1,11 @@
-<?php 
+<?php
 require_once(__DIR__ . "/../partials/head.php");
 ?>
 
 <div class="myBody">
     <h1>Inscription</h1>
 
-    <!-- Affichage des erreurs globales -->
-    <?php if (!empty($this->data['error'])) { ?>
-        <p class="text-danger"><?= htmlspecialchars($this->data['error']) ?></p>
-    <?php } ?>
+
 
     <form class="formulaire1" method='POST'>
         <div>
@@ -28,9 +25,11 @@ require_once(__DIR__ . "/../partials/head.php");
         <div>
             <label for="email">Email</label>
             <input type="email" name='email'>
-            <?php if (isset($this->arrayError['email'])) { ?>
-                <p class='text-danger'><?= $this->arrayError['email'] ?></p>
+            <!-- Affichage de l'erreur si l'email existe déjà -->
+            <?php if (!empty($this->data['error'])) { ?>
+                <p class="text-danger"><?= htmlspecialchars($this->data['error']) ?></p>
             <?php } ?>
+
         </div>
         <div>
             <label for="password">Mot de passe</label>
@@ -46,12 +45,12 @@ require_once(__DIR__ . "/../partials/head.php");
                 <p class='text-danger'><?= $this->arrayError['birth_date'] ?></p>
             <?php } ?>
         </div>
-        
+
         <div>
             <label for="idRole">Role</label>
             <select class="form-select" aria-label="idRole" name="idRole">
-                <option value="1">Admin</option> 
-                <option value="2">Client</option> 
+                <option value="1">Admin</option>
+                <option value="2">Client</option>
             </select>
         </div>
         <?php if (isset($this->arrayError['idRole'])) { ?>

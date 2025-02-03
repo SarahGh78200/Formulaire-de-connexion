@@ -29,7 +29,8 @@ class RegisterController extends AbstractController
                 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
                 if (User::findByEmail($email)) {
-                    $error = "Cette adresse e-mail est déjà utilisée.";
+                    $this->data['error'] = "Cette adresse e-mail est déjà utilisée.";
+
                 } else {
                     $user = new User(null, $surname, $name, $birth_date, $passwordHash, $id_role, $email);
                     if ($user->save()) {
