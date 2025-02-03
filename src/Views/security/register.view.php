@@ -46,6 +46,7 @@ require_once(__DIR__ . "/../partials/head.php");
                 <p class='text-danger'><?= $this->arrayError['birth_date'] ?></p>
             <?php } ?>
         </div>
+        
         <div>
             <label for="idRole">Role</label>
             <select class="form-select" aria-label="idRole" name="idRole">

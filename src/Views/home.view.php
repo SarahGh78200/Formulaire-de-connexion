@@ -15,7 +15,7 @@ require_once(__DIR__ . '/partials/head.php');
     <?php endif; ?>
 <?php endif; ?>
 
-<h1>Licence'N'Kids</h1>
+<h1>Free Moove Driver</h1>
 
 <?php
 if (isset($_SESSION['user']) && $_SESSION['user']['idRole'] == 1) {
