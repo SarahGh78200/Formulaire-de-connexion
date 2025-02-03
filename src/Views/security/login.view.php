@@ -8,10 +8,10 @@ ini_set("display_errors", 1);
 
 <form class="formulaire1" method='POST'>
     <div>
-        <label for="mail">Mail :</label>
-        <input type="email" name='mail'>
-        <?php if (isset($this->arrayError['mail'])) { ?>
-            <p class='text-danger'><?= $this->arrayError['mail'] ?></p>
+        <label for="email">Mail :</label>
+        <input type="email" name='email'>
+        <?php if (isset($this->arrayError['email'])) { ?>
+            <p class='text-danger'><?= $this->arrayError['email'] ?></p>
         <?php } ?>
     </div>
     <div>

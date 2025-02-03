@@ -17,12 +17,12 @@ $router->addRoute('/register', 'RegisterController', 'index');
 $router->addRoute('/login', 'LoginController', 'index');
 $router->addRoute('/logout', 'LogoutController', 'logout');
 // Les licences:
-$router->addRoute('/addLicence', 'LicenceController', 'createLicence');
-$router->addRoute('/licence', 'LicenceController', 'index');
-$router->addRoute('/editLicence', 'LicenceController', 'editLicence');
-$router->addRoute('/deleteLicence', 'LicenceController', 'deleteLicence');
-$router->addRoute('/deleteLicenceAndTodo', 'LicenceController', 'deleteLicenceAndTodo');
-$router->addRoute('/assignLicence', 'LicenceController', 'addKidLicence');
-$router->addRoute('/updateAssignLicence', 'LicenceController', 'updateTodoLicence');
+// $router->addRoute('/addLicence', 'LicenceController', 'createLicence');
+// $router->addRoute('/licence', 'LicenceController', 'index');
+// $router->addRoute('/editLicence', 'LicenceController', 'editLicence');
+// $router->addRoute('/deleteLicence', 'LicenceController', 'deleteLicence');
+// $router->addRoute('/deleteLicenceAndTodo', 'LicenceController', 'deleteLicenceAndTodo');
+// $router->addRoute('/assignLicence', 'LicenceController', 'addKidLicence');
+// $router->addRoute('/updateAssignLicence', 'LicenceController', 'updateTodoLicence');
 
 $router->handleRequest();

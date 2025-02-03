@@ -30,7 +30,7 @@
                         if ($_SESSION['user']['idRole'] == 1) {
                     ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="/addTask">Créer tâche</a>
+                                <a class="nav-link" href="/addTask">Ajouter une licence</a>
                             </li>
                         <?php
                         }
