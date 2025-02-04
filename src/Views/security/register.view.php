@@ -26,8 +26,8 @@ require_once(__DIR__ . "/../partials/head.php");
             <label for="email">Email</label>
             <input type="email" name='email'>
             <!-- Affichage de l'erreur si l'email existe déjà -->
-            <?php if (!empty($this->data['error'])) { ?>
-                <p class="text-danger"><?= htmlspecialchars($this->data['error']) ?></p>
+            <?php if (!empty($this->errors['email'])) { ?>
+                <p class="text-danger"><?= htmlspecialchars($this->errors['email']) ?></p>
             <?php } ?>
 
         </div>
@@ -41,8 +41,8 @@ require_once(__DIR__ . "/../partials/head.php");
         <div>
             <label for="birth_date">Date de naissance</label>
             <input type="date" name='birth_date'>
-            <?php if (isset($this->arrayError['birth_date'])) { ?>
-                <p class='text-danger'><?= $this->arrayError['birth_date'] ?></p>
+            <?php if (!empty($errors['birth_date'])) { ?>
+                <p class='text-danger'><?= htmlspecialchars($errors['birth_date']) ?></p>
             <?php } ?>
         </div>
 
