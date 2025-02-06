@@ -79,4 +79,4 @@ class User
     public function setId_Role(int|string|null $id_role): void { $this->id_role = $id_role; }
     public function getEmail(): ?string { return $this->email; }
     public function setEmail(?string $email): void { $this->email = $email; }
-}
+} 

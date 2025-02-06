@@ -16,6 +16,7 @@ $router->addRoute('/', 'HomeController', 'index');
 $router->addRoute('/register', 'RegisterController', 'index');
 $router->addRoute('/login', 'LoginController', 'index');
 $router->addRoute('/logout', 'LogoutController', 'logout');
+$router->addRoute('/404', 'ErrorController', 'notFound');
 // Les licences:
 // $router->addRoute('/addLicence', 'LicenceController', 'createLicence');
 // $router->addRoute('/licence', 'LicenceController', 'index');

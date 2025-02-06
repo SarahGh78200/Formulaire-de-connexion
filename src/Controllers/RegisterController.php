@@ -1,5 +1,4 @@
-<?php
-
+<?php  
 namespace App\Controllers;
 
 use App\Utils\AbstractController;
@@ -12,7 +11,11 @@ class RegisterController extends AbstractController
     public function index()
     {
         if (isset($_POST['surname'], $_POST['name'], $_POST['birth_date'], $_POST['password'], $_POST['idRole'], $_POST['email'])) {
-            $this->check('email', $_POST['email']); // Vérification de l'email
+            $this->check('email', $_POST['email']);
+            $this->check('name', $_POST['name']);
+            $this->check('surname', $_POST['surname']);
+            $this->check('password', $_POST['password']);
+            $this->check('idRole', $_POST['idRole']); // Vérification de l'email
 
             if (empty($this->arrayError)) {
                 $name = htmlspecialchars($_POST['name']);

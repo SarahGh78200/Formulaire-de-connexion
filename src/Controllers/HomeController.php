@@ -1,11 +1,10 @@
 <?php
 
-
 namespace App\Controllers;
 
 use App\Utils\AbstractController;
 use App\Models\Licence;
-;
+
 class HomeController extends AbstractController
 {
     public function index()
@@ -24,7 +23,14 @@ class HomeController extends AbstractController
 
             while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
                 // On utilise le constructeur existant pour mapper chaque licence
-                $licences[] = new Licence($row['id'],$row['title'],$row['description'], $row['price'],$row['availability'],$row['picture'],$row['id_user']     
+                $licences[] = new Licence(
+                    $row['id'],
+                    $row['title'],
+                    $row['description'],
+                    $row['price'],
+                    $row['availability'],
+                    $row['picture'],
+                    $row['id_user']
                 );
             }
         }
