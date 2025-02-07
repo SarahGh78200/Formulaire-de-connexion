@@ -41,6 +41,30 @@ class User
             $this->email
         ]);
     }
+    public static function findAll(): array
+{
+    $pdo = DataBase::getConnection(); // Connexion à la base de données
+    $sql = "SELECT * FROM user"; // Requête pour récupérer tous les utilisateurs
+    $statement = $pdo->prepare($sql);
+    $statement->execute();
+    $rows = $statement->fetchAll(PDO::FETCH_ASSOC); // Récupère tous les résultats
+
+    // Créer un tableau d'objets User à partir des résultats
+    $users = [];
+    foreach ($rows as $row) {
+        $users[] = new User(
+            $row['id'],  
+            $row['surname'], 
+            $row['name'],
+            $row['birth_date'], 
+            $row['password'], 
+            $row['id_role'], 
+            $row['email']
+        );
+    }
+    return $users; // Retourne le tableau des utilisateurs
+}
+
 
     public static function findByEmail(string $email): ?User
     {

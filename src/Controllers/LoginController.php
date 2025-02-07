@@ -1,5 +1,4 @@
-<?php
-
+<?php  
 namespace App\Controllers;
 
 use App\Utils\AbstractController;
@@ -7,6 +6,8 @@ use App\Models\User;
 
 class LoginController extends AbstractController
 {
+    private array $errors = []; // Ajout de cette ligne
+
     public function index()
     {
         if (isset($_POST['email'], $_POST['password'])) {
@@ -20,9 +21,7 @@ class LoginController extends AbstractController
                 $user = User::findByEmail($email);
 
                 if ($user) {
-                    $passwordUser = $user->getPassword();
-
-                    if (password_verify($password, $passwordUser)) {
+                    if (password_verify($password, $user->getPassword())) {
                         $_SESSION['user'] = [
                             'id' => $user->getId(),
                             'surname' => $user->getSurname(),
@@ -33,10 +32,10 @@ class LoginController extends AbstractController
                         ];
                         $this->redirectToRoute('/');
                     } else {
-                        $error = "Le mail ou mot de passe n'est pas correct";
+                        $this->errors['password'] = "Mot de passe incorrect ou adresse mail incorrect";
                     }
                 } else {
-                    $error = "Le mail ou mot de passe n'est pas correct";
+                    $this->errors['email'] = "Cet email n'existe pas.";
                 }
             }
         }
@@ -45,6 +44,8 @@ class LoginController extends AbstractController
             $this->redirectToRoute('/');
         }
 
+        // On passe $this->errors à la vue
+        $errors = $this->errors; // On crée une variable locale
         require_once(__DIR__ . "/../Views/security/login.view.php");
     }
 }
